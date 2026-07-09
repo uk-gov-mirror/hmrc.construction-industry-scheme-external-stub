@@ -1,0 +1,60 @@
+{
+  "scheme": [
+    {
+      "schemeId": "scheme-123",
+      "instanceId": "<String>",
+      "accountsOfficeReference": "123PA00123456",
+      "taxOfficeNumber": "",
+      "taxOfficeReference": "123",
+      "utr": "1111111111",
+      "name": "ABC XYZ",
+      "emailAddress": "ABCXYZ@test.com",
+      "displayWelcomePage": "",
+      "prePopCount": "",
+      "prePopSuccessful": "",
+      "subcontractorCounter": "",
+      "verificationBatchCounter": "",
+      "createDate": "2026-05-09T10:00:00Z",
+      "lastUpdate": "2026-07-09T10:00:00Z",
+      "version": "1.0.0"
+    }
+  ],
+  "subcontractors": [
+    {
+      "subcontractorId": 101,
+      "utr": "UTR123451",
+      "pageVisited": 2,
+      "partnerUtr": "UTR123452",
+      "crn": "CRN123",
+      "firstName": "Mike",
+      "nino": "AB123456C",
+      "secondName": "",
+      "surname": "Ross",
+      "utr": "1234567890",
+      "verificationNumber": "V1234567890",
+      "taxTreatment": "net"
+    }
+  ],
+  "verifications": [
+    {
+      "verificationResourceRef": 201,
+      "subbieResourceRef": 101,
+      "verificationStatus": "matched",
+      "verificationNumber": "V1234567890",
+      "taxTreatment": "net"
+    }
+  ],
+  "verificationBatch": {
+    "verificationBatchResourceRef": 77,
+    "status": "started",
+    "instanceId": "abc-123",
+    "submissionId": 12345
+  },
+  "submission": {
+    "submissionId": 12345,
+    "submissionType": "CIS_VERIFY",
+    "status": "PENDING",
+    "instanceId": "abc-123",
+    "agentId": "agent-123"
+  }
+}

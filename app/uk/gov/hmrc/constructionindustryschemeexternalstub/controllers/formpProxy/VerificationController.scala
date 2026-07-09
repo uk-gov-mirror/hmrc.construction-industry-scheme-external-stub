@@ -47,6 +47,8 @@ class VerificationController @Inject() (
     s"$verificationResponsePath/createVerificationBatchAndVerifications-201-response.json"
   private val createSubmissionForVerification_201_ResponsePath                             =
     s"$verificationResponsePath/createSubmissionForVerification-201-response.json"
+  private val getSubmissionWithVerificationBatch_200_ResponsePath                          =
+    s"$verificationResponsePath/getSubmissionWithVerificationBatch-200-response.json"
 
   private def withEnrolmentDispatch(onSuccess: => Result)(implicit request: AuthenticatedRequest[_]): Result =
     enrolmentHelper.contractorEnrolmentsOpt(request) match {
@@ -177,6 +179,47 @@ class VerificationController @Inject() (
           errs => BadRequest(Json.obj("message" -> "Invalid payload", "errors" -> JsError.toJson(errs))),
           _ => withEnrolmentDispatch(NoContent)
         )
+    }
+
+  def getSubmissionWithVerificationBatch(
+    instanceId: String,
+    verificationBatchResourceRef: Long
+  ): Action[AnyContent] =
+    authorise { implicit request =>
+      enrolmentHelper.contractorEnrolmentsOpt(request) match {
+        case Some(enrolmentReference) =>
+          (enrolmentReference.taxOfficeNumber, enrolmentReference.taxOfficeReference) match {
+            case ("500", _) =>
+              InternalServerError(Json.obj("message" -> "Unexpected error"))
+
+            case ("502", _) =>
+              BadGateway(Json.obj("message" -> "formp failed"))
+
+            case _ =>
+              Ok(
+                Json.parse(
+                  resourceHelper.resourceAsString(
+                    getSubmissionWithVerificationBatch_200_ResponsePath
+                  )
+                )
+              )
+          }
+
+        case None =>
+          enrolmentHelper.agentEnrolmentsOpt(request) match {
+            case Some(_) =>
+              Ok(
+                Json.parse(
+                  resourceHelper.resourceAsString(
+                    getSubmissionWithVerificationBatch_200_ResponsePath
+                  )
+                )
+              )
+
+            case None =>
+              InternalServerError
+          }
+      }
     }
 
 }

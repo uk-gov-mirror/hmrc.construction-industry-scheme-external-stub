@@ -41,6 +41,7 @@ POST       /cis/verification/submission/update                      uk.gov.hmrc.
 POST       /cis/verification/response/process                       uk.gov.hmrc.constructionindustryschemeexternalstub.controllers.formpProxy.VerificationController.processVerificationResponseFromChris()
 
 GET        /cis/batchpoll-submissions                               uk.gov.hmrc.constructionindustryschemeexternalstub.controllers.formpProxy.BatchPollController.getBatchPollSubmissions()
+GET        /verification/submission-batch                       uk.gov.hmrc.constructionindustryschemeexternalstub.controllers.formpProxy.VerificationController.getSubmissionWithVerificationBatch(instanceId: String, verificationBatchResourceRef: Long)
 
 # stubbed rds-datacache-proxy routes
 POST       /cis-taxpayer                                            uk.gov.hmrc.constructionindustryschemeexternalstub.controllers.rdsDataCacheProxy.CisTaxpayerController.getCisTaxpayerByTaxReference
