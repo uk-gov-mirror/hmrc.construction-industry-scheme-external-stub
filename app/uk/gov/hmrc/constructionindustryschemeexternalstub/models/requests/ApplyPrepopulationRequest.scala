@@ -17,7 +17,6 @@
 package uk.gov.hmrc.constructionindustryschemeexternalstub.models.requests
 
 import play.api.libs.json.*
-import uk.gov.hmrc.constructionindustryschemeexternalstub.models.SubcontractorType
 
 case class ApplyPrepopulationRequest(
   schemeId: Int,
@@ -32,7 +31,7 @@ case class ApplyPrepopulationRequest(
   prePopCount: Int,
   prePopSuccessful: String,
   version: Int,
-  subcontractorTypes: Seq[SubcontractorType]
+  subcontractors: Seq[PrepopulationSubcontractor]
 )
 
 object ApplyPrepopulationRequest {

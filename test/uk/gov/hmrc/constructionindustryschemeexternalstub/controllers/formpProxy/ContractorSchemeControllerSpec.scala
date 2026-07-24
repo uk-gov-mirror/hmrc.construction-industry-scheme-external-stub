@@ -306,7 +306,17 @@ class ContractorSchemeControllerSpec extends AnyWordSpec with Matchers with Mock
                 |  "prePopCount": 1,
                 |  "prePopSuccessful": "Y",
                 |  "version": 2,
-                |  "subcontractorTypes": ["soletrader"]
+                |  "subcontractors": [
+                |    {
+                |      "subcontractorType": "soletrader",
+                |      "utr": "1111111111",
+                |      "verificationNumber": "V1",
+                |      "firstName": "Ann",
+                |      "surname": "Smith",
+                |      "verified": "Y",
+                |      "autoVerified": "Y"
+                |    }
+                |  ]
                 |}
                 |""".stripMargin)
           )
