@@ -85,7 +85,8 @@ class GetLastSubmittedVerificationBatchResponseSpec extends AnyWordSpec with Mat
             verificationNumber = Some("V0000000001"),
             taxTreatment = Some("0"),
             subcontractorName = Some("James Star"),
-            subcontractorId = Some(22L)
+            subcontractorId = Some(22L),
+            actionIndicator = Some("verify")
           )
         ),
         submission = Some(
@@ -173,7 +174,8 @@ class GetLastSubmittedVerificationBatchResponseSpec extends AnyWordSpec with Mat
             verificationNumber = Some("V0000000001"),
             taxTreatment = Some("0"),
             subcontractorName = Some("James Star"),
-            subcontractorId = Some(22L)
+            subcontractorId = Some(22L),
+            actionIndicator = Some("verify")
           )
         ),
         submission = Some(
